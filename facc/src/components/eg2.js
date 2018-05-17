@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { Position } from './facc';
 export class Eg2 extends Component {
   state = {
     position: { x: 0, y: 0 }
@@ -11,13 +11,16 @@ export class Eg2 extends Component {
   render() {
     const { x, y } = this.state.position;
     return (
-      <div
-        className="control"
-        ref={this.registerMouseEvent}
-        style={{ backgroundColor: `hsl(0, ${x % 100}%, ${y % 100}% )` }}
-      >
-        <div>{`X is ${x} and Y is ${y}`}</div>
-      </div>
+      <Position>
+        {pos => (
+          <div
+            ref={this.registerMouseEvent}
+            style={{ backgroundColor: `hsl(0, ${pos.x % 100}%, ${pos.y % 100}% )` }}
+          >
+            <div>{`X is ${pos.x} and Y is ${pos.y}`}</div>
+          </div>
+        )}
+      </Position>
     );
   }
 }
