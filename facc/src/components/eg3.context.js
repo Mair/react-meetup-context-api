@@ -6,7 +6,7 @@ export class Eg3 extends Component {
   render() {
     return (
       <div className="control">
-        <MouseConsumer>{pos => <div>{`X is ${pos.x} and Y is ${pos.y}`}</div>}</MouseConsumer>
+        <MouseConsumer>{pos => <div onClick={() => pos.onCount()}>{`X is ${pos.position.x} and Y is ${pos.position.y}`}</div>}</MouseConsumer>
       </div>
     );
   }
